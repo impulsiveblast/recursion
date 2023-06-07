@@ -1,0 +1,15 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+void prin(int n)
+{
+    if(n==0)                //a base conditioon is necesary to end a recursive function
+    return ;
+    cout<<n<<endl;
+    prin(n-1);
+}
+
+int main()
+{
+    prin(4);
+}
