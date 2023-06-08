@@ -1,0 +1,18 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void prin(string s,int n)
+{
+    if(n==0)
+    return;
+    else
+    cout<<s<<endl;
+    prin(s,n-1);
+}
+
+int main()
+{
+    prin("Jaggu Bandar",10);
+    
+    return 0;
+}
