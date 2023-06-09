@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int sum(int n,int s)      //taking n:number till sum is to be printed and sum=0 as input
+{
+      if(n<1)
+      {
+        return s;             //using return as the given function is int
+      }
+      
+          sum(n-1,s+n);                      //calculating sum from this forula
+          
+}
+
+
+
+
+int main()
+{
+    int n;
+    cin>>n;
+    
+    cout<<sum(n,0);
+    
+    
+    return 0;
+     
+}
