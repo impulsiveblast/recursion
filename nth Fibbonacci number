@@ -3,9 +3,9 @@ using namespace std;
 
 int f(int n)
 {
-    if(n<=1)                                    //printing fibbonci no >>multiple recursion call will be takken
+    if(n<=1)                                    //printing fibbonci no
     {
-        return n; 
+        return n;
     }
     
     return f(n-1)+f(n-2);
@@ -18,10 +18,10 @@ int main()
    int n;
    cin>>n;
    
-   cout<<f(n);
+   cout<<f(n);                                             //O(2^N)
    
    return 0;
-   
+    
 }
   
 
