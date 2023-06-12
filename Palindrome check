@@ -1,0 +1,33 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+bool check(string s,int i)
+{
+    if(s[i]!=s[s.size()-i-1])    //checking weather a string is palindrome or not.
+  {
+      return false;
+  }
+  
+  if(i>=(s.size())/2)
+  {
+      return true;
+  }
+  
+  return check(s,i+1);
+
+}
+
+int main()
+{
+    string s;
+    cin>>s;
+    
+                                               //O(N/2)    
+    cout<<check(s,0);
+    
+    
+    
+  return 0;
+  
+}
+
