@@ -2,7 +2,7 @@
 using namespace std;
 
 //
-void prin(int n)
+void print(int n)
 {
     if(n==0)                //a base conditioon is necesary to end a recursive function
     return ;
