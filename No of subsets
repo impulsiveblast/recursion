@@ -1,0 +1,36 @@
+class Solution {
+public:
+ void makesubsets(int i,vector<int> &v,vector<vector<int>> &v0,vector<int>& nums)
+ {
+   
+    if(i==nums.size())
+    {
+        v0.push_back(v);
+        // if()
+        // v.pop_back();
+       
+        return;
+    }
+ // selection
+  v.push_back(nums[i]);    
+    makesubsets(i+1,v,v0,nums);
+   v.pop_back();  //backtrack to its previous position along with the previous position of vector
+    
+    //after selecting 1 element
+    makesubsets(i+1,v,v0,nums);
+    
+
+ } 
+
+public:
+    vector<vector<int>> subsets(vector<int>& nums) {
+      
+     vector<vector<int>> v0;
+     vector<int> v1;
+
+     makesubsets(0,v1,v0,nums);
+
+     return v0;
+
+    }
+};
