@@ -1,0 +1,54 @@
+class Solution{
+    public:
+    void formpaths(int j,int i,vector<vector<int>> &m,vector<string> &v,string s)
+    {
+        if(j==m.size()-1 && i==m.size()-1)
+        {
+            // m[j][i]=-1;
+            v.push_back(s);
+            
+            return;  // point at which recursion ends
+        }
+        
+        
+           if(j<m.size() && j>=0 && i>=0 && i<m.size() && m[j][i]==1)
+         {
+            m[j][i]=-1;
+            
+             s+='D';
+             formpaths(j+1,i,m,v,s);
+              s.pop_back();
+             s+='U';
+             formpaths(j-1,i,m,v,s);
+              s.pop_back();
+             s+='R';
+             formpaths(j,i+1,m,v,s);
+             s.pop_back();
+             s+='L';
+             formpaths(j,i-1,m,v,s);
+             s.pop_back(); 
+             m[j][i]=1;
+         }
+        
+    }
+    
+    public:
+    vector<string> findPath(vector<vector<int>> &m, int n) {
+        // Your code goes here
+        vector<string> v;
+        string s="";
+        
+        if(m[0][0]==1 && m[m.size()-1][m.size()-1]==1)
+        {
+          formpaths(0,0,m,v,s); 
+           return v; 
+        }
+        else
+        {
+            return v;
+        }
+        
+    }
+};
+
+    
