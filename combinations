@@ -1,0 +1,41 @@
+//similar to subsets problem where 1st select a number or deselect it at a point
+//the monment size of vector is k insert it in vector of vector(v0 for ex)
+//final v0 is the ans
+
+class Solution {
+    public:
+
+    void makesubsets(vector<int> &v1,vector<vector<int>> &v0,int n,int k,int i)
+    {
+
+        if(v1.size()==k || i==n+1)
+        {
+            if(v1.size()==k)
+            {
+                v0.push_back(v1);
+            }
+
+            return ;
+
+        }
+
+
+        
+        v1.push_back(i);
+        // v0.push_back(v1);
+        makesubsets(v1,v0,n,k,i+1);
+        v1.pop_back();
+        makesubsets(v1,v0,n,k,i+1);
+    }
+public:
+    vector<vector<int>> combine(int n, int k) {
+     
+     vector<int> v1;
+     vector<vector<int>> v0;
+
+     makesubsets(v1,v0, n, k,1);
+
+     return v0;
+
+    }
+};
