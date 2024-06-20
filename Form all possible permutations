@@ -1,0 +1,43 @@
+//An stl inuilt function exists : next_permutation(A.begin(),A.end())
+//through this we can find out the  lexicographically next vector  
+
+class Solution {
+
+public:
+void formperm(vector<vector<int>> &v1,vector<int> &v,vector<int>& nums,map<int,int> &m)
+{
+     
+     if(v.size()==nums.size())
+     {
+        v1.push_back(v);
+        return;
+     }
+
+    for(int i=0;i<nums.size();i++)
+    {
+        if(m[nums[i]]==0)
+        {
+           m[nums[i]]=1;
+           v.push_back(nums[i]);
+           formperm(v1,v,nums,m);
+           m[v[v.size()-1]]=0;
+           v.pop_back();
+
+        }
+    }
+}
+
+
+public:
+    vector<vector<int>> permute(vector<int>& nums) {
+        
+        vector<vector<int>> v1;
+        vector<int> v;
+        // vector<int> nums;
+        map<int,int> m;
+
+        formperm(v1,v,nums,m);
+
+        return v1;
+    }//Unique
+};
