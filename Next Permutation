@@ -1,0 +1,41 @@
+//find an index k starting from right (nums.size()-2) such that a[k]<a[k+1]
+//find an index l starting from right till k+1 such that a[l]>a[k]
+//swap a[k],a[l]
+//reverse all elements on right of kth index
+//resulting array is our next permutation array
+
+class Solution {
+public:
+    void nextPermutation(vector<int>& nums) {
+        
+        int k,l;
+
+        for( k=nums.size()-2;k>=0;k--)
+        {
+            if(nums[k]<nums[k+1]){
+                break;
+            }
+        }
+
+        if(k<0)
+        {
+            reverse(nums.begin(),nums.end());
+        }
+        else
+        {
+            for(l=nums.size()-1;l>k;l--)
+            {
+                if(nums[l]>nums[k])
+                {
+                    break;
+                }
+            }
+
+
+            swap(nums[k],nums[l]);
+
+            reverse(nums.begin()+k+1,nums.end());
+        }
+
+    }
+};
